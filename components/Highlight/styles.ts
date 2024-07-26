@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { Roboto, RobotoProps } from "../Roboto";
+import { Typography, Props } from "../Typography";
 import { AnyNodeProps } from "@/types";
 
 export const Container = styled.View`
@@ -7,7 +7,7 @@ export const Container = styled.View`
   gap: 5px;
 `;
 
-export const Title = styled(Roboto).attrs({
+export const Title = styled(Typography).attrs({
   color: "white",
   size: "XL",
   weight: "bold",
@@ -15,7 +15,7 @@ export const Title = styled(Roboto).attrs({
   text-align: center;
 `;
 
-export const Subtitle = styled(Roboto).attrs({
+export const Subtitle = styled(Typography).attrs({
   color: "gray300",
   size: "MD",
   weight: "regular",

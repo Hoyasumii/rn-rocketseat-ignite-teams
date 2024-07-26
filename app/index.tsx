@@ -1,4 +1,4 @@
-import { Button, GroupCard, Header, Hightlight, Roboto } from "@/components";
+import { Button, GroupCard, Header, Hightlight, Typography } from "@/components";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation, useRouter } from "expo-router";
 import { Alert, FlatList, Text, View } from "react-native";
@@ -7,16 +7,16 @@ import {
   Empty,
   EmptyContainer,
   ListSeparator,
-} from "./index.components";
+} from "./index.styles";
 import { useState } from "react";
 
 function EmptyList() {
   return (
     <EmptyContainer>
       <Empty />
-      <Roboto color="greenDark" size="MD" weight="regular">
+      <Typography color="greenDark" size="MD" weight="regular">
         Sem turmas cadastradas
-      </Roboto>
+      </Typography>
     </EmptyContainer>
   );
 }
@@ -41,8 +41,7 @@ export default function Index() {
         <Button
           text="Criar nova Turma"
           onPress={() => {
-            navigation.navigate("/test")
-            // navigation.navigate("/test");
+            navigation.navigate("/NewGroup")
           }}
         />
       </Container>

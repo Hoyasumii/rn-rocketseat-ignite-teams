@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { Props } from "./types";
 import { AnyNodeProps } from "@/types";
-import { Roboto } from "../Roboto";
+import { Typography } from "../Typography";
 
 export const Container = styled.TouchableOpacity.attrs({
   activeOpacity: 0.7,
@@ -16,7 +16,7 @@ export const Container = styled.TouchableOpacity.attrs({
   align-items: center;
 `;
 
-export const Title = styled(Roboto).attrs({
+export const Title = styled(Typography).attrs({
   size: "MD",
   color: "white",
   weight: "bold",

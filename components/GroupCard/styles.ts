@@ -1,7 +1,7 @@
 import { UsersThree } from "phosphor-react-native";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import { Roboto } from "../Roboto";
+import { Typography } from "../Typography";
 import { AnyNodeProps } from "@/types";
 
 export const Container = styled(TouchableOpacity).attrs(() => ({
@@ -18,7 +18,7 @@ export const Container = styled(TouchableOpacity).attrs(() => ({
   padding: 24px;
 `;
 
-export const Title = styled(Roboto).attrs({
+export const Title = styled(Typography).attrs({
   size: "MD",
   color: "gray200",
   weight: "regular",
