@@ -1,4 +1,4 @@
-import { Button, GroupCard, Header, Hightlight, Typography } from "@/components";
+import { Button, GroupCard, Header, Highlight, Typography } from "@/components";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation, useRouter } from "expo-router";
 import { Alert, FlatList, Text, View } from "react-native";
@@ -30,7 +30,7 @@ export default function Index() {
       <StatusBar style={"light"} />
       <Container>
         <Header />
-        <Hightlight title="Turmas" subtitle="jogue com a sua turma" />
+        <Highlight title="Turmas" subtitle="jogue com a sua turma" />
         <FlatList
           data={items}
           renderItem={({ item }) => <GroupCard title={item} />}

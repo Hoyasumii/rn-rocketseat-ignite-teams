@@ -8,4 +8,9 @@ export const Container = styled(SafeAreaView)`
   padding: 10px 15px;
 `;
 
-
+export const Content = styled.View`
+  flex: 1;
+  align-items: center;
+  padding-top: 100px;
+  gap: 24px;
+`;
