@@ -1,3 +1,4 @@
+import { Typography } from "@/components";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 
@@ -41,4 +42,24 @@ export const ListItem = styled.TouchableOpacity.attrs(() => ({
   border-radius: 6px;
   border-width: 1px;
   border-color: transparent;
+`;
+
+export const TeamList = styled.FlatList.attrs(() => ({
+  contentContainerStyle: {
+    gap: 10,
+  },
+}))``;
+
+export const TeamListItem = styled.View`
+  background-color: ${({ theme }) => theme.Colors.gray500};
+  border-radius: 6px;
+  padding: 5px 10px;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+`;
+
+export const TeamListName = styled(Typography)`
+  flex: 1;
 `;

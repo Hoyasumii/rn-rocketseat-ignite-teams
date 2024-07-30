@@ -1,8 +1,10 @@
 import {
+  Button,
   ButtonIcon,
   EmptyList,
   Header,
   Highlight,
+  Icon,
   Input,
   ListSeparator,
   Typography,
@@ -14,10 +16,13 @@ import {
   Form,
   ListItem,
   TeamController,
+  TeamList,
+  TeamListItem,
+  TeamListName,
 } from "./styles";
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { useState } from "react";
 import { useTheme } from "styled-components/native";
+import { Alert } from "react-native";
 
 type Player = {
   name: string;
@@ -27,8 +32,41 @@ type Player = {
 export default function Page() {
   const { Colors } = useTheme();
   const { teamName } = useLocalSearchParams<{ teamName: string }>();
-  const [players, setPlayers] = useState<Array<Player>>([]);
+  const [players, setPlayers] = useState<Array<Player>>([
+    { name: "Teste", team: 1 },
+    { name: "Teste 2", team: 2 },
+    { name: "Teste 3", team: 1 },
+  ]);
   const [currentTeam, setCurrentTeam] = useState<Player["team"]>(1);
+  const [input, setInput] = useState<string>("");
+
+  const keyExtractor: (...args: Array<any>) => any = (item: Player) =>
+    item.name;
+
+  const addPlayer = () => {
+    if (input.length === 0) return;
+    setPlayers((prev) => [...prev, { name: input, team: currentTeam }]);
+    setInput("");
+  };
+
+  const removePlayer = (playerIndex: number) => {
+    Alert.alert(
+      "Deseja remover o Player?",
+      "Você realmente deseja remover o Player?",
+      [
+        { text: "Não", style: "default" },
+        {
+          text: "Sim",
+          style: "destructive",
+          onPress() {
+            setPlayers((prev) =>
+              prev.filter((_, index) => index !== playerIndex)
+            );
+          },
+        },
+      ]
+    );
+  };
 
   return (
     <Container>
@@ -37,10 +75,19 @@ export default function Page() {
         title={teamName || "Nome da turma"}
         subtitle="adicione a galera e separe os times"
       />
+
       <Form>
-        <Input style={{ flex: 1 }} placeholder="Nome do participante" />
-        <ButtonIcon icon="add" type="primary" />
+        <Input
+          value={input}
+          onChangeText={(text) => {
+            setInput(text);
+          }}
+          style={{ flex: 1 }}
+          placeholder="Nome do participante"
+        />
+        <ButtonIcon onPress={addPlayer} icon="add" type="primary" />
       </Form>
+
       <Controller>
         <TeamController
           data={[1, 2].map((item) => `time ${item}`)}
@@ -66,7 +113,26 @@ export default function Page() {
           {players.filter((item) => item.team === currentTeam).length}
         </Typography>
       </Controller>
-      
+
+      <TeamList
+        data={players.filter((item) => item.team === currentTeam)}
+        keyExtractor={keyExtractor}
+        renderItem={({ item, index }: { item: any; index: number }) => (
+          <TeamListItem>
+            <Icon icon="person" />
+            <TeamListName>{item.name}</TeamListName>
+            <ButtonIcon
+              onPress={() => {
+                removePlayer(index);
+              }}
+              icon="close"
+              type="error"
+            />
+          </TeamListItem>
+        )}
+        ListEmptyComponent={<EmptyList text="Equipe Vazia" />}
+      />
+      <Button text="Remover turma" type="error" />
     </Container>
   );
 }

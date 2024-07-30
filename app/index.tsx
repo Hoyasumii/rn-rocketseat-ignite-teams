@@ -1,4 +1,11 @@
-import { Button, EmptyList, GroupCard, Header, Highlight, ListSeparator } from "@/components";
+import {
+  Button,
+  EmptyList,
+  GroupCard,
+  Header,
+  Highlight,
+  ListSeparator,
+} from "@/components";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { FlatList } from "react-native";
