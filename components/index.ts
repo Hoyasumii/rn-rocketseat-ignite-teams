@@ -8,3 +8,4 @@ export { Input } from "./Input";
 export { Icon, type Props as IconProps } from "./Icon";
 export { ButtonIcon } from "./ButtonIcon";
 export { EmptyList } from "./EmptyList";
+export { ListSeparator } from "./ListSeparator";

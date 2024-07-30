@@ -1,12 +1,16 @@
 import { Typography } from "../Typography";
 import { Container, Empty } from "./styles";
 
-export function EmptyList() {
+type Props = {
+  text: string;
+};
+
+export function EmptyList({ text }: Props) {
   return (
     <Container>
       <Empty />
       <Typography color="green" size="MD" weight="regular">
-        Sem turmas cadastradas
+        {text}
       </Typography>
     </Container>
   );

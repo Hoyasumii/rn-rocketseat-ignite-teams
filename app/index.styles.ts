@@ -7,7 +7,3 @@ export const Container = styled(SafeAreaView)`
   gap: 32px;
   padding: 10px 15px;
 `;
-
-export const ListSeparator = styled.View`
-  height: 10px;
-`;

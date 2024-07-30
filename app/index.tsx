@@ -1,8 +1,8 @@
-import { Button, EmptyList, GroupCard, Header, Highlight } from "@/components";
+import { Button, EmptyList, GroupCard, Header, Highlight, ListSeparator } from "@/components";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { FlatList } from "react-native";
-import { Container, ListSeparator } from "./index.styles";
+import { Container } from "./index.styles";
 import { useState } from "react";
 
 export default function Index() {
@@ -26,7 +26,7 @@ export default function Index() {
             />
           )}
           ItemSeparatorComponent={ListSeparator}
-          ListEmptyComponent={<EmptyList />}
+          ListEmptyComponent={<EmptyList text="Sem turmas cadastradas" />}
           keyExtractor={(item) => item}
         />
         <Button

@@ -13,3 +13,32 @@ export const Content = styled.View`
   align-items: center;
   gap: 24px;
 `;
+
+export const Form = styled.View`
+  width: 100%;
+  flex-direction: row;
+  background-color: ${({ theme }) => theme.Colors.gray700};
+  border-radius: 6px;
+`;
+
+export const Controller = styled.View`
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const TeamController = styled.FlatList.attrs(() => ({
+  contentContainerStyle: {
+    alignItems: "center",
+    gap: 10,
+  },
+}))``;
+
+export const ListItem = styled.TouchableOpacity.attrs(() => ({
+  activeOpacity: 0.7,
+}))`
+  padding: 5px 10px;
+  border-radius: 6px;
+  border-width: 1px;
+  border-color: transparent;
+`;
