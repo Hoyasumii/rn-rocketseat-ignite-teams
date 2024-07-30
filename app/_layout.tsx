@@ -1,5 +1,5 @@
 import { ThemeProvider } from "styled-components/native";
-import { Slot, Stack } from "expo-router";
+import { Stack } from "expo-router";
 import theme from "@/styles";
 import {
   useFonts,
@@ -13,7 +13,16 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider theme={theme}>
-      {loaded ? <Stack screenOptions={{ headerShown: false }} /> : <Loading />}
+      {loaded ? (
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+          initialRouteName="index"
+        />
+      ) : (
+        <Loading />
+      )}
     </ThemeProvider>
   );
 }

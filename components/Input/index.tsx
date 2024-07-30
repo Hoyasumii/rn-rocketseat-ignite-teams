@@ -1,13 +1,10 @@
 import { useTheme } from "styled-components/native";
 import { Content } from "./styles";
+import { TextInputProps } from "react-native";
 
-type Props = {
-  placeholder: string;
-  value?: string;
-  setValue?: React.Dispatch<React.SetStateAction<string>>;
-};
+type Props = TextInputProps;
 
-export function Input({ placeholder }: Props) {
+export function Input({ ...props }: Props) {
   const { Colors } = useTheme();
-  return <Content placeholder={placeholder} placeholderTextColor={Colors.gray300} />;
+  return <Content placeholderTextColor={Colors.gray300} {...props} />;
 }

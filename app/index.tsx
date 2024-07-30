@@ -1,26 +1,9 @@
-import { Button, GroupCard, Header, Highlight, Typography } from "@/components";
+import { Button, EmptyList, GroupCard, Header, Highlight } from "@/components";
 import { StatusBar } from "expo-status-bar";
-import { useFocusEffect, useNavigation, useRouter } from "expo-router";
-import { Alert, FlatList, Text, View } from "react-native";
-import {
-  Container,
-  Empty,
-  EmptyContainer,
-  ListSeparator,
-} from "./index.styles";
+import { useRouter } from "expo-router";
+import { FlatList } from "react-native";
+import { Container, ListSeparator } from "./index.styles";
 import { useState } from "react";
-import { ExpoRouter } from "expo-router/types/expo-router";
-
-function EmptyList() {
-  return (
-    <EmptyContainer>
-      <Empty />
-      <Typography color="greenDark" size="MD" weight="regular">
-        Sem turmas cadastradas
-      </Typography>
-    </EmptyContainer>
-  );
-}
 
 export default function Index() {
   const navigation = useRouter();

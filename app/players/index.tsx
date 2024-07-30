@@ -1,11 +1,19 @@
-import { Header } from "@/components";
-import { Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Header, Highlight } from "@/components";
+import { useLocalSearchParams } from "expo-router";
+import { Container, Content } from "./styles";
 
 export default function Page() {
+  const { teamName } = useLocalSearchParams<{ teamName: string }>();
+
   return (
-    <SafeAreaView>
+    <Container>
       <Header />
-    </SafeAreaView>
+      <Content>
+        <Highlight
+          title={teamName || "Nome da turma"}
+          subtitle="adicione a galera e separe os times"
+        />
+      </Content>
+    </Container>
   );
 }
