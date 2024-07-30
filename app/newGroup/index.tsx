@@ -1,5 +1,5 @@
 import { Button, Header, Highlight, Input } from "@/components";
-import { Container, Content } from "./NewGroup.styles";
+import { Container, Content } from "./styles";
 import { useTheme } from "styled-components/native";
 import { UsersThree } from "phosphor-react-native";
 
@@ -8,7 +8,7 @@ export default function NewGroup() {
 
   return (
     <Container>
-      <Header showBackButton />
+      <Header />
       <Content>
         <UsersThree color={Colors.green} size={64} />
         <Highlight

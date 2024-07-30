@@ -1,6 +1,6 @@
 import { Button, GroupCard, Header, Highlight, Typography } from "@/components";
 import { StatusBar } from "expo-status-bar";
-import { useNavigation, useRouter } from "expo-router";
+import { useFocusEffect, useNavigation, useRouter } from "expo-router";
 import { Alert, FlatList, Text, View } from "react-native";
 import {
   Container,
@@ -9,6 +9,7 @@ import {
   ListSeparator,
 } from "./index.styles";
 import { useState } from "react";
+import { ExpoRouter } from "expo-router/types/expo-router";
 
 function EmptyList() {
   return (
@@ -33,7 +34,14 @@ export default function Index() {
         <Highlight title="Turmas" subtitle="jogue com a sua turma" />
         <FlatList
           data={items}
-          renderItem={({ item }) => <GroupCard title={item} />}
+          renderItem={({ item }) => (
+            <GroupCard
+              onPress={() => {
+                navigation.push("/players");
+              }}
+              title={item}
+            />
+          )}
           ItemSeparatorComponent={ListSeparator}
           ListEmptyComponent={<EmptyList />}
           keyExtractor={(item) => item}
@@ -41,7 +49,7 @@ export default function Index() {
         <Button
           text="Criar nova Turma"
           onPress={() => {
-            navigation.navigate("/NewGroup")
+            navigation.push("/newGroup");
           }}
         />
       </Container>
